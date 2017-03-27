@@ -17,7 +17,7 @@ before_script:
 - ./bin/version-increment.sh || { exit 1; }
 - npm run build
 script:
-- npm test
+- npm run lint && npm test || { exit 1; }
 after_success:
 - ./bin/ci/push.sh
 deploy:
