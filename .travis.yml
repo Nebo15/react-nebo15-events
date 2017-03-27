@@ -1,0 +1,29 @@
+language: node_js
+node_js:
+- 6.9.1
+cache:
+  directories:
+  - ~/.nvm
+  - node_modules
+git:
+  depth: 1
+env:
+  global:
+  - RELEASE_BRANCH="master"
+  - MAIN_BRANCHES="master develop"
+  - secure: IC2lztddSinXrIcF7eu3V11pH+6svZ9xk+rQhybyA/JxcDNMNu/r+JHaXKjeRus6YYiABMZy6aAY912ameAtz2oHhKrGAfekCVbpUBz9owHaL1PqS2K5yivU9GhFX0U8wpphaxbK6ErbjQ5ok1GTaU1Tk6jHycxmhqGwgi6Ef/PDn3ZF+Mtk5jCoUj1YF7Hcx8lbJDGZCQgMMV6CqPscfyJQUeHsgl7KcO/1XWNISu3911/s3MOEn5KiJMug2Pwlt5WXKiKFHMfvSAwJnqMmqyx9do7uHzw4odlSkv+JiBgGPqnMpReKWpHxs17l/007/3TNXYYgg58uB4OoiRlaWemB7YLfMACN6RDRROMYqJSwQI7jCMQp16dqezfSX7KfDmnilUVS0RTH6NZcCvJ4rP67IR2HI2pxY6G6bWjoTb9GtRzwZXFJp06PFg7Qj3MOJgpbNEIqVtQKEh/yCHWhyCaIfW50+I5Ti4AC2RTxLU6ntKWuTnWQw4rcKE2kEfFQ6bmz5I6jzLNFfN8QFfWR44tIk+NOQbVpvrxCh6WFPQimyRZCSDm7hSeLvQFjBaNkX5WRA/JR3y27J9wAlfw7szLpijGwIh+pgDnX/dZ/snFKh1InZmcrL6CNK1kb7pRxX1I4P3+v0CY2YomBtfMwqEEN4Qo35eUkAcwjkumsgDg=
+before_script:
+- chmod -R +x bin
+- ./bin/version-increment.sh || { exit 1; }
+- npm run build
+after_success:
+- ./bin/ci/push.sh
+deploy:
+  provider: npm
+  email: alexeybondarenko@me.com
+  skip_cleanup: true
+  api_key:
+    secure: tUw4knjS5LqQ2SFGQwB0FfwI+CPt8vDEkGtkQPBElB3KCQJIMSQw7c5kUeAaOaTbNH8eL3nsrTgZIwB4ATkMj3Y7VQ4kxDPZ3huri+xB6pmVTI96MeAYI5fcd77syqpS5FIJK6GqZH0HN2KYIcykJ7XObc9KkDCv1ME0PXNmwUCv1chB5yqfO2LkGkJjKL0rUeusxG9Z8V/iLXggxtveIXuwmuiTZ3wpGJJ5cZy0YniSJpvkC7H0N8MTqazBTX9DN+uPLD4PyC9xHyNYqFDmmguFPatvZ6qkEK0E0u8FC1JIduFWjAa7ZKPFkwullEo5c4t7IS07M+keJBg8rdEHzz1s6nstMyhRO9HP4OOrjSpn0O8rry75g3RIPqq2FvVO8ySZJtRAf+ViOY6EV9ALeB4BXEteoynX982nqUNrBpwPMUNWtt56FvkIIbSpCYMj1Vg6QSazpu/4Owpnk29jVNlbvGacmYm84HdHhFj7LX2dvfOYKU8SPIOVlvBavAln4Mxfbz/G9TSARsMtxMf0Y+PQW9ulhbRWWJ1FMQqOMNJ6DJ3Bu33B7sXZXi2fiwe+blX/smXGu1TXgoW2IgJ8cvvXWMtC1HbdDBfigCnFTFhejyb3BOQoPExW0JWBlVG/db/7mU5kTE1W8KbKXjm51xohuR10hd4w+icBg3ZIouw=
+  on:
+    branch: master
+    repo: Nebo15/react-nebo15-events
