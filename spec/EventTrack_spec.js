@@ -134,7 +134,7 @@ describe('EventTrack', function () {
 
     it('should support disabling extend options', function () {
       const test = {test: 'a', b: 'c'},
-        test2 = {test: 'b'};
+        test2 = { test: 'b' };
 
       let elem = TestUtils.renderIntoDocument(
         <EventOptions options={test}>
