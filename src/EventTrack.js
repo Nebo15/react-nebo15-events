@@ -1,5 +1,5 @@
-import React, {Component, PropTypes} from 'react';
-import EventManager from './EventManager';
+import React, { Component, PropTypes } from 'react';
+import globalManager from './EventManager';
 
 export default class EventTrack extends Component {
 
@@ -18,8 +18,7 @@ export default class EventTrack extends Component {
   track() {
     const options = this.props.extendOptions === false ? this.props.options :
       Object.assign({}, this.context.eventOptions || {}, this.props.options);
-
-    (this.context.eventManager || EventManager).track(this.props.name, options);
+    (this.context.eventManager || globalManager).track(this.props.name, options);
   }
 
   render() {

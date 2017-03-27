@@ -16,6 +16,8 @@ before_script:
 - chmod -R +x bin
 - ./bin/version-increment.sh || { exit 1; }
 - npm run build
+script:
+- npm test
 after_success:
 - ./bin/ci/push.sh
 deploy:

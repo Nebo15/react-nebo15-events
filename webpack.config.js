@@ -1,13 +1,15 @@
-var webpack = require('webpack');
-var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
-var path = require('path');
-var env = require('yargs').argv.mode;
+const webpack = require('webpack');
+const path = require('path');
+const env = require('yargs').argv.mode;
 
-var libraryName = 'ReactNebo15Events';
+const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 
-var plugins = [], outputFile;
+const libraryName = 'ReactNebo15Events';
 
-var reactExternal = {
+const plugins = [];
+let outputFile;
+
+const reactExternal = {
   root: 'React',
   commonjs2: 'react',
   commonjs: 'react',
@@ -24,19 +26,19 @@ if (env === 'build') {
       warnings: false,
     },
   }));
-  outputFile = 'react-nebo15-events' + '.min.js';
+  outputFile = 'react-nebo15-events.min.js';
 } else {
-  outputFile = 'react-nebo15-events' + '.js';
+  outputFile = 'react-nebo15-events.js';
 }
 
 const config = {
   externals: {
     react: reactExternal,
   },
-  entry: __dirname + '/src/index.js',
+  entry: `${__dirname}/src/index.js`,
   devtool: 'source-map',
   output: {
-    path: __dirname + '/lib',
+    path: `${__dirname}/lib`,
     filename: outputFile,
     library: libraryName,
     libraryTarget: 'umd',
@@ -60,7 +62,7 @@ const config = {
     root: path.resolve('./src'),
     extensions: ['', '.js'],
   },
-  plugins: plugins,
+  plugins,
 };
 
 module.exports = config;
