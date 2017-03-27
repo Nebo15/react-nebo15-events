@@ -47,6 +47,11 @@
     "type": "git",
     "url": "https://github.com/nebo15/react-nebo15-events.git"
   },
+  "greenkeeper": {
+    "ignore": [
+      "webpack"
+    ]
+  },
   "keywords": [
     "events",
     "manager"
