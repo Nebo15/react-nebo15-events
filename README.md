@@ -1,5 +1,7 @@
 # React Events
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Nebo15/react-nebo15-events.svg)](https://greenkeeper.io/)
+
 Event Manager for React JS application.
 
 ### Installation
