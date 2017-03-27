@@ -13,36 +13,29 @@ export class EventManager {
   }
 
   track(name, options) {
-    let opts = Object.assign({}, this.globalOptions, options);
+    const opts = Object.assign({}, this.globalOptions, options);
 
     this._getHandlers(name).forEach((item) => {
       item(name, opts);
     });
   }
 
-  subscribe(events = [], fn) {
-    if (!Array.isArray(events)) {
-      events = [events];
-    }
+  subscribe(_events = [], fn) {
+    const events = !Array.isArray(_events) ? [_events] : _events;
+
     events.forEach((item) => {
       if (!Array.isArray(this.handlers[item])) {
         this.handlers[item] = [];
       }
       this.handlers[item].push(fn);
     });
-
   }
 
-  unsubscribe(events, fn) {
-    if (!Array.isArray(events)) {
-      events = [events];
-    }
+  unsubscribe(_events, fn) {
+    const events = !Array.isArray(_events) ? [_events] : _events;
+
     events.forEach((item) => {
-      this.handlers[item] = (this.handlers[item] || []).filter(function (item) {
-        if (item !== fn) {
-          return item;
-        }
-      });
+      this.handlers[item] = (this.handlers[item] || []).filter(item => item !== fn);
     });
   }
 
