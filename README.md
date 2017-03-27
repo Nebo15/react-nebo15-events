@@ -1,5 +1,7 @@
 # React Events
 
+[![Build Status](https://travis-ci.org/Nebo15/react-nebo15-events.svg?branch=master)](https://travis-ci.org/Nebo15/react-nebo15-events)
+
 Event Manager for React JS application.
 
 ### Installation
