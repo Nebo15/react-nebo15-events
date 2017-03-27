@@ -12,11 +12,12 @@
   },
   "devDependencies": {
     "babel": "6.3.13",
-    "babel-core": "6.1.18",
-    "babel-loader": "6.1.0",
-    "babel-plugin-add-module-exports": "0.1.2",
+    "babel-core": "6.24.0",
+    "babel-eslint": "7.2.1",
+    "babel-loader": "6.4.1",
+    "babel-plugin-add-module-exports": "0.2.1",
     "babel-plugin-transform-es5-property-mutators": "^6.8.0",
-    "babel-preset-es2015": "6.3.13",
+    "babel-preset-es2015": "6.24.0",
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-0": "^6.22.0",
     "babel-require": "^1.0.1",
@@ -39,6 +40,11 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/nebo15/react-nebo15-events.git"
+  },
+  "greenkeeper": {
+    "ignore": [
+      "webpack"
+    ]
   },
   "keywords": [
     "events",
