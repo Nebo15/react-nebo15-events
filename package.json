@@ -35,7 +35,7 @@
     "mocha": "^2.3.4",
     "rimraf": "^2.6.1",
     "webpack": "1.12.9",
-    "yargs": "3.32.0"
+    "yargs": "7.1.0"
   },
   "repository": {
     "type": "git",
