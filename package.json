@@ -33,6 +33,8 @@
     "estraverse-fb": "^1.3.1",
     "jsdom": "^9.12.0",
     "mocha": "^3.3.0",
+    "react-dom": "^15.5.0",
+    "react-addons-test-utils": "^15.5.0",
     "rimraf": "^2.6.1",
     "webpack": "1.12.9",
     "yargs": "8.0.1"
@@ -57,10 +59,11 @@
   },
   "homepage": "https://github.com/nebo15/react-nebo15-events",
   "peerDependencies": {
-    "react": "^15.0.0",
-    "react-addons-test-utils": "^15.0.0"
+    "react": "^15.5.0",
+    "react-addons-test-utils": "^15.5.0",
+    "react-dom": "^15.5.0"
   },
   "dependencies": {
-    "react": "^15.4.2"
+    "react": "^15.5.0"
   }
 }
