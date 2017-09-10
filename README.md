@@ -91,10 +91,13 @@ Event track component
 
 #### Properties
 
-- name
-- event
-- options
-- extendOptions
+| Name | Type | Default value | Description |
+| - | - | - | - |
+| name | `string` | - | Event name |
+| event | `string` | `onClick` | Name of the event handler. According to this doc: https://facebook.github.io/react/docs/events.html | 
+| options | `object` | - | Options, what will sended to the eventManager then event fires. |
+| extendOptions | `boolean` | `true` | Extend or replace the options from parent `EventOptions` | 
+| wrap | `string` or `React.Element` | - | Wrapping element. Can be useful when EventTrack can't set the event handler to the element (eg. you use `recompose/pure`) or if you have few child components. |
 
 ### EventOptions
 
