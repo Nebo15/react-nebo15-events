@@ -81,13 +81,25 @@ Manager of subscriptions for events.
 
 ### EventManagerProvider
 
+HOC component that defines the context for the children elements in React application. All inherit elements will have the context `eventManager` 
+
 #### Properties
 
-- manager (default: global manager)
+| Name | Type | Default value | Description | 
+| - | - | - | - |
+| manager | `EventManager` | global event manager | EventManager that will manage the subscription and handle the events from the children of this EventManagerProvider |
+
+#### Contextes
+
+`EventManagerProvider` defines the context `eventManager` to pass the instance of `EventManager` to the instances of `EventTrack` and `EventOptions`.
+
+| Name | Type | Description |
+| - | - | - |
+| eventManager | `EventManager` | EventManager passed as a prop `manager` in `EventManagerProvider` or default the global EventManager |
 
 ### EventTrack
 
-Event track component
+Event track component. Using `EventTrack`, you can define the events in your application. `EventTrack` add the event listener to your element and fire the event in the EventManager. 
 
 #### Properties
 
@@ -101,6 +113,24 @@ Event track component
 
 ### EventOptions
 
+`EventOptions` can be useful if you want to pass the options to all child EventTrack components. eg. You want to know the name of the component there the EventTrack was fired.
+
+```
+<EventOptions options={{ component: 'header' }}>
+  <header>
+    <EventTrack name="Logo Click">
+     <img src="images/logo.png" />
+    </EventTrack>
+    <Navigation />
+  </header>
+</EventOptions>
+```
+
+According to this example, when `Logo Click` will fire, it will be received in the `EventManager` with options `{component: 'header' }`. If Navigation has its own `EventTrack`s, they also will be fired with the `component: 'header'` in the options. 
+(only if `EventTrack.extendsOptions` is not set to `false`)
+
 #### Properties
 
-- options
+| Name | Type | Default value | Description |
+| - | - | - | - |
+| options | `object` | - | Options will be used during firing the event in the inherit `EventTrack` components |
