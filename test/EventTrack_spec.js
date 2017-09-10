@@ -91,7 +91,7 @@ describe('EventTrack', () => {
 
       const elem = mount(
         <EventOptions options={test}>
-          <EventTrack name="should extend options by default" options={test2} extendOptions>
+          <EventTrack name="should extend options by default" options={test2}>
             <div>Original DOM</div>
           </EventTrack>
         </EventOptions>
