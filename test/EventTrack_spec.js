@@ -120,4 +120,26 @@ describe('EventTrack', () => {
       expect(globalManager.track).to.have.been.called.with('test disabling extend options', test2);
     });
   });
+
+  describe('props:: wrap', () => {
+    it('should not wrap element if wrap is undefined', () => {
+      const elem = mount(
+        <EventTrack name="test disabling extend options">
+          <div>Original DOM</div>
+        </EventTrack>
+      );
+      expect(elem.containsMatchingElement(<div>Original DOM</div>)).to.equal(true);
+    });
+
+    it('should wrap element if wrap is presented', () => {
+      const Wrapper = props => <div className="some property of wrapper">{props.children}</div>;
+      const Children = <div>Original DOM</div>;
+      const elem = mount(
+        <EventTrack name="test disabling extend options" wrap={Wrapper}>
+          { Children }
+        </EventTrack>
+      );
+      expect(elem.containsMatchingElement(<Wrapper>{ Children }</Wrapper>)).to.equal(true);
+    });
+  });
 });

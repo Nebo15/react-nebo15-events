@@ -23,8 +23,9 @@ export default class EventTrack extends Component {
 
   render() {
     const eventName = this.props.event || 'onClick';
+    const wrap = this.props.wrap || false;
 
-    return React.cloneElement(this.props.children, {
+    const options = {
       [eventName]: (e) => {
         this.track();
         return this.props.children &&
@@ -33,6 +34,10 @@ export default class EventTrack extends Component {
           typeof this.props.children.props[eventName] === 'function' &&
           this.props.children.props[eventName](e);
       },
-    });
+    };
+
+    return wrap
+      ? React.createElement(wrap, options, this.props.children)
+      : React.cloneElement(this.props.children, options);
   }
 }
