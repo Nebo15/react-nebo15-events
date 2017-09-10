@@ -1,6 +1,6 @@
 {
   "name": "react-nebo15-events",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Event Manager and components for React JS",
   "main": "lib/react-nebo15-events.min.js",
   "scripts": {
