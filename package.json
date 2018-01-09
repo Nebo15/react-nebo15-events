@@ -37,7 +37,7 @@
     "react-addons-test-utils": "^15.5.0",
     "rimraf": "^2.6.1",
     "webpack": "1.12.9",
-    "yargs": "8.0.1"
+    "yargs": "10.1.1"
   },
   "repository": {
     "type": "git",
