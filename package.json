@@ -15,7 +15,7 @@
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
     "babel-loader": "7.0.0",
-    "babel-plugin-add-module-exports": "0.2.1",
+    "babel-plugin-add-module-exports": "0.3.0-pre",
     "babel-plugin-transform-es5-property-mutators": "^6.8.0",
     "babel-preset-es2015": "6.24.1",
     "babel-preset-react": "^6.23.0",
